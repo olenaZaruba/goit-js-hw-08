@@ -23,12 +23,13 @@ function handlerSubmit(evt) {
   const { email, message } = evt.currentTarget.elements;
   console.log({ email: email.value.trim(), message: message.value.trim() });
 
-  //   if (localStorage.getItem(storageForm)) {
-  //     let data = JSON.parse(localStorage.getItem(storageForm));
-  //     console.log(data);
-  localStorage.removeItem(storageForm);
+  if (localStorage.getItem(storageForm)) {
+    let data = JSON.parse(localStorage.getItem(storageForm));
+    console.log(data);
+    localStorage.removeItem(storageForm);
+  }
+  evt.currentTarget.reset();
 }
-// }
 
 function checkStorageData() {
   let savedData = localStorage.getItem(storageForm);

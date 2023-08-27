@@ -4,7 +4,7 @@ import { galleryItems } from './gallery-items';
 
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { refs } from './refs';
-import { createGalleryMarkup } from './renderFunctions';
+import { createGalleryMarkup } from './renderfunctions';
 
 // Change code below this line
 

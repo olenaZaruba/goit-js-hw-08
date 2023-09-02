@@ -8,9 +8,9 @@ const storageForm = 'feedback-form-state';
 refs.form.addEventListener('input', throttle(handlerInput, 500));
 refs.form.addEventListener('submit', handlerSubmit);
 
+checkStorageData();
 function handlerInput(evt) {
-  evt.preventDefault();
-  formData = {
+  const formData = {
     email: refs.email.value.trim(),
     message: refs.message.value.trim(),
   };
@@ -21,18 +21,18 @@ function handlerInput(evt) {
 function handlerSubmit(evt) {
   evt.preventDefault();
   const { email, message } = evt.currentTarget.elements;
-  console.log({ email: email.value.trim(), message: message.value.trim() });
-
-  if (localStorage.getItem(storageForm)) {
-    let data = JSON.parse(localStorage.getItem(storageForm));
-    console.log(data);
-    localStorage.removeItem(storageForm);
+  if (email.value !== '' && message.value !== '') {
+    console.log({ email: email.value.trim(), message: message.value.trim() });
+  } else {
+    return alert('Заповнить всi поля !');
   }
+
+  localStorage.removeItem(storageForm);
   evt.currentTarget.reset();
 }
 
 function checkStorageData() {
-  let savedData = localStorage.getItem(storageForm);
+  const savedData = localStorage.getItem(storageForm);
   if (!savedData) {
     return;
   }

@@ -36,7 +36,7 @@ function checkStorageData() {
   if (!savedData) {
     return;
   }
-  reverseData = JSON.parse(savedData);
+  const reverseData = JSON.parse(savedData);
   refs.email.value = reverseData.email ?? '';
   refs.message.value = reverseData.message ?? '';
 }
